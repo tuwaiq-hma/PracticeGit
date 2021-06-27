@@ -33,7 +33,7 @@ namespace PracticeGit
         public async Task<ActionResult<ProductModel>> GetProductModel(int id)
         {
             var productModel = await _context.Products.FindAsync(id);
-
+            
             if (productModel == null)
             {
                 return NotFound();
@@ -53,7 +53,6 @@ namespace PracticeGit
             }
 
             _context.Entry(productModel).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
