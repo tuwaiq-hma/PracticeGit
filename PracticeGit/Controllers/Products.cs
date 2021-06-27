@@ -29,12 +29,12 @@ namespace PracticeGit
         }
 
         // GET: api/Products/5
-        [HttpGet("{id}")]
+        [HttpGet("{ID}")]
         public async Task<ActionResult<ProductModel>> GetProductModel(int id)
         {
             var productModel = await _context.Products.FindAsync(id);
 
-            if (productModel == null)
+            if (productModel != null)
             {
                 return NotFound();
             }
