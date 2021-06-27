@@ -59,7 +59,7 @@ namespace PracticeGit
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductModelExists(id))
+                if (!_context.Products.Any(e => e.Id == id))
                 {
                     return NotFound();
                 }
@@ -98,10 +98,6 @@ namespace PracticeGit
 
             return NoContent();
         }
-
-        private bool ProductModelExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
-        }
+        
     }
 }
